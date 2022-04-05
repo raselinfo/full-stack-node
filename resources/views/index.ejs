@@ -1,0 +1,36 @@
+<!-- Hero -->
+<section id="hero">
+    <div class="container hero__wrapper">
+        <div class="hero__text">
+            <h3 class="subtitle">Are you hungry? </h3>
+            <h2 class="title">Don't Wait!</h2>
+            <button class="btn">order Now</button>
+        </div>
+        <div class="hero__image">
+            <img src="/img/hero-pizza.png" alt="">
+        </div>
+    </div>
+</section>
+<!-- All Pizza -->
+<section id="pizza">
+    <div class="container pizza__wrapper">
+        <%menus.forEach(({name,image,price,size})=>{%>
+            <div class="pizza__item">
+                <img src="/img/pizza.png" alt="pizza">
+                <h4 class="name">
+                    <%=name%>
+                </h4>
+                <span class="size">
+                    <%=size%>
+                </span>
+                <div class="price__action">
+                    <span class="price">$<%=price%></span>
+                    <button class="btn">+ Add</button>
+                </div>
+            </div>
+            <% })%>
+
+
+
+    </div>
+</section>

@@ -1,0 +1,217 @@
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  width: 1300px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+#header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+#header .navbar .logo img {
+  height: 50px;
+}
+
+#header .navbar .menu {
+  display: flex;
+  align-items: center;
+}
+
+#header .navbar .menu a {
+  font-size: 20px;
+  color: #232323;
+  display: inline-block;
+  margin: 0 10px;
+  transition: all 0.3s ease-in-out;
+}
+#header .navbar .menu a:hover {
+  color: #b23301;
+}
+
+#header .navbar .menu span {
+  background: #fe5f1e;
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+#header .navbar .menu span:hover {
+  background: #b23301;
+}
+
+#hero {
+  background-color: #f8f8f8;
+  padding: 85px 0;
+}
+#hero .hero__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#hero .hero__wrapper .hero__text .subtitle {
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-size: 20px;
+}
+#hero .hero__wrapper .hero__text .title {
+  font-size: 60px;
+  font-weight: 700;
+}
+#hero .hero__wrapper .hero__text .btn {
+  color: #fff;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  font-size: 18px;
+  background-color: #fe5f1e;
+}
+#hero .hero__wrapper .hero__text .btn:hover {
+  background-color: #b23301;
+}
+#hero .hero__wrapper .hero__image img {
+  width: 800px;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#pizza {
+  padding: 85px 0;
+}
+#pizza .pizza__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  row-gap: 50px;
+}
+#pizza .pizza__wrapper .pizza__item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+}
+#pizza .pizza__wrapper .pizza__item img {
+  width: 250px;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#pizza .pizza__wrapper .pizza__item .name {
+  color: #232323;
+  font-size: 25px;
+}
+#pizza .pizza__wrapper .pizza__item .size {
+  background-color: #f8f8f8;
+  padding: 5px 15px;
+  font-weight: 400;
+  border-radius: 20px;
+}
+#pizza .pizza__wrapper .pizza__item .price__action {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+#pizza .pizza__wrapper .pizza__item .price__action .price {
+  font-size: 25px;
+  font-weight: 700;
+}
+#pizza .pizza__wrapper .pizza__item .price__action .btn {
+  color: #fff;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  font-size: 18px;
+  border: 1px solid #fe5f1e;
+  color: #fe5f1e;
+  padding: 5px 25px;
+}
+#pizza .pizza__wrapper .pizza__item .price__action .btn:hover {
+  background-color: #b23301;
+}
+#pizza .pizza__wrapper .pizza__item .price__action .btn:hover {
+  color: #fff;
+}
+
+.cart {
+  background-color: #f8f8f8;
+}
+.cart .empty__cart {
+  padding: 85px 0;
+}
+.cart .empty__cart .empty__cart-button {
+  color: #fff;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  font-size: 18px;
+  background-color: #fe5f1e;
+}
+.cart .empty__cart .empty__cart-button:hover {
+  background-color: #b23301;
+}
+.cart .order__footer h3 {
+  color: #fe5f1e;
+}
+.cart .order__footer h3 span {
+  color: #232323;
+}
+.cart .order__footer button,
+.cart .order__footer a {
+  color: #fff;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  font-size: 18px;
+  background-color: #fe5f1e;
+}
+.cart .order__footer button:hover,
+.cart .order__footer a:hover {
+  background-color: #b23301;
+}
+
+.login {
+  background-color: #f8f8f8;
+  height: calc(100vh - 100px);
+}
+.login .btn {
+  color: #fff;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  font-size: 18px;
+  background-color: #fe5f1e;
+}
+.login .btn:hover {
+  background-color: #b23301;
+}
+.login .dontAccount {
+  color: #fe5f1e;
+}

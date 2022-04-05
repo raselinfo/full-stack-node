@@ -1,0 +1,222 @@
+@import "./variable";
+
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font;
+}
+
+.container {
+    width    : 1300px;
+    max-width: 100%;
+    margin   : 0 auto;
+    padding  : 0 20px;
+}
+
+@mixin btn {
+    color         : $pure;
+    text-transform: capitalize;
+    padding       : 10px 20px;
+    border-radius : 20px;
+    transition    : $smooth;
+    display       : inline-block;
+    font-size     : 18px;
+
+    &:hover {
+        background-color: $primary-hover
+    }
+}
+
+// Header
+#header .navbar {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    height         : 100px;
+}
+
+#header .navbar .logo img {
+    height: 50px;
+}
+
+#header .navbar .menu {
+    display    : flex;
+    align-items: center;
+}
+
+#header .navbar .menu a {
+    font-size: 20px;
+    color    : $dark;
+    display  : inline-block;
+    margin   : 0 10px;
+
+    &:hover {
+        color: $primary-hover;
+    }
+
+    transition: $smooth;
+}
+
+#header .navbar .menu span {
+    background   : $primary;
+    display      : inline-block;
+    padding      : 10px 15px;
+    border-radius: 20px;
+    cursor       : pointer;
+
+    &:hover {
+        background: $primary-hover;
+    }
+
+    transition: $smooth;
+}
+
+// Hero
+
+#hero {
+    background-color: $secondary;
+    padding         : 85px 0;
+
+    .hero__wrapper {
+        display        : flex;
+        align-items    : center;
+        justify-content: space-between;
+
+        .hero__text {
+            .subtitle {
+                font-family: $font;
+                font-style : italic;
+                font-size  : 20px;
+            }
+
+            .title {
+                font-size  : 60px;
+                font-weight: 700;
+            }
+
+            .btn {
+                @include btn;
+                background-color: $primary;
+            }
+        }
+
+        .hero__image {
+            img {
+                width     : 800px;
+                max-width : 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+// Pizza
+#pizza {
+    padding: 85px 0;
+
+    .pizza__wrapper {
+        display        : flex;
+        flex-wrap      : wrap;
+        justify-content: space-between;
+        column-gap     : 50px;
+        row-gap        : 50px;
+
+        .pizza__item {
+            display       : flex;
+            align-items   : center;
+            flex-direction: column;
+            row-gap       : 10px;
+
+            img {
+                width     : 250px;
+                max-width : 100%;
+                object-fit: cover;
+            }
+
+            .name {
+                color    : $dark;
+                font-size: 25px;
+            }
+
+            .size {
+                background-color: $secondary;
+                padding         : 5px 15px;
+                font-weight     : 400;
+                border-radius   : 20px;
+            }
+
+            .price__action {
+                display        : flex;
+                width          : 100%;
+                justify-content: space-between;
+
+                .price {
+                    font-size  : 25px;
+                    font-weight: 700;
+                }
+
+                .btn {
+                    @include btn;
+                    border : 1px solid $primary;
+                    color  : $primary;
+                    padding: 5px 25px;
+
+                    &:hover {
+                        color: $pure;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Cart
+.cart {
+    background-color: $secondary;
+
+    .empty__cart {
+        padding: 85px 0;
+
+        .empty__cart-button {
+            @include btn;
+            background-color: $primary;
+        }
+    }
+
+    .order__footer {
+        h3 {
+            color: $primary;
+
+            span {
+                color: $dark;
+            }
+        }
+
+        button,
+        a {
+            @include btn;
+            background-color: $primary;
+        }
+
+    }
+}
+
+// Login
+.login {
+    background-color: $secondary;
+    height          : calc(100vh - 100px);
+
+    .btn {
+        @include btn;
+        background-color: $primary;
+    }
+
+    .dontAccount {
+        color: $primary;
+
+    }
+}
