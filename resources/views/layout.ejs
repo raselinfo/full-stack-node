@@ -30,6 +30,9 @@
                     <a href="/login">Login</a>
                     <span>
                         <a href="/cart"><img src="/img/cart.png" alt="cart"></a>
+                        <span id="cartQty">
+                           <%=session.cart ? session.cart.totalQty : "0"  %> 
+                        </span>
                     </span>
                 </div>
             </nav>

@@ -3,12 +3,16 @@ const express = require("express")
 const ejs = require("ejs")
 const expressLayout = require("express-ejs-layouts")
 const path = require("path")
+const flash = require("express-flash")
 const mongoose = require("mongoose")
 const session = require("express-session")
+const MongoStor = require("connect-mongodb-session")(session)
 const getWebRoutes = require("./routes/web")
 const app = express()
 let PORT = process.env.PORT || 4000
 let MONGO_URI = process.env.MONGO_URI
+
+app.use(express.json())
 // DataBase connection
 const connectDB = async () => {
     try {
@@ -18,21 +22,40 @@ const connectDB = async () => {
         });
         console.log(`mongodb connected :${conn.connection.host}`);
     } catch (error) {
+        console.log("hello")
         console.error(`Error:${error.message}`);
         process.exit();
     }
 };
 connectDB()
+
+const store = new MongoStor({
+    uri: MONGO_URI,
+    collection: 'sessions',
+})
+
+store.on("error", (err) => {
+    console.log(err)
+})
 app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 }
+    cookie: { maxAge: 1000 * 60 * 60 * 24 },
+    store
 }))
+
+app.use(flash())
+
 app.use(expressLayout)
 app.set("views", path.join(__dirname, "/resources/views"))
 app.set("view engine", "ejs")
 app.use(express.static("public"))
+
+app.use((req, res, next) => {
+    res.locals.session = req.session
+    next()
+})
 
 getWebRoutes(app)
 

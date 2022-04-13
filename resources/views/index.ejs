@@ -14,7 +14,7 @@
 <!-- All Pizza -->
 <section id="pizza">
     <div class="container pizza__wrapper">
-        <%menus.forEach(({name,image,price,size})=>{%>
+        <%menus.forEach(({_id,name,image,price,size})=>{%>
             <div class="pizza__item">
                 <img src="/img/pizza.png" alt="pizza">
                 <h4 class="name">
@@ -25,7 +25,7 @@
                 </span>
                 <div class="price__action">
                     <span class="price">$<%=price%></span>
-                    <button class="btn">+ Add</button>
+                    <button data-pizza="<%=JSON.stringify({_id,name,image,price,size})  %> " class="btn">+ Add</button>
                 </div>
             </div>
             <% })%>
