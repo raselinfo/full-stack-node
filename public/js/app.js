@@ -2223,26 +2223,36 @@ function _updateCart() {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
+            _context.prev = 0;
+            _context.next = 3;
             return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/updateCart', pizza);
 
-          case 2:
+          case 3:
             response = _context.sent;
             cartQty.innerHTML = response.data.totalQnt;
             new (noty__WEBPACK_IMPORTED_MODULE_2___default())({
-              text: 'Some notification text',
-              timeout: 1000,
-              sounds: {
-                volume: 0.5
-              }
+              type: "success",
+              text: "Product Added",
+              timeout: 1000
+            }).show();
+            _context.next = 11;
+            break;
+
+          case 8:
+            _context.prev = 8;
+            _context.t0 = _context["catch"](0);
+            new (noty__WEBPACK_IMPORTED_MODULE_2___default())({
+              type: "error",
+              text: "Something Went Wrong!",
+              timeout: 1000
             }).show();
 
-          case 5:
+          case 11:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee);
+    }, _callee, null, [[0, 8]]);
   }));
   return _updateCart.apply(this, arguments);
 }

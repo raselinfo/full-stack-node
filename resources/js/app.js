@@ -5,16 +5,22 @@ const cartQty = document.getElementById("cartQty")
 
 
 async function updateCart(pizza) {
-    let response = await axios.post('/updateCart', pizza)
-    cartQty.innerHTML = response.data.totalQnt
 
-    new Noty({
-        text: 'Some notification text',
-        timeout:1000,
-        sounds:{
-            volume:0.5
-        }
-    }).show();
+    try {
+        let response = await axios.post('/updateCart', pizza)
+        cartQty.innerHTML = response.data.totalQnt
+        new Noty({
+            type: "success",
+            text: "Product Added",
+            timeout: 1000,
+        }).show()
+    } catch (err) {
+        new Noty({
+            type: "error",
+            text: "Something Went Wrong!",
+            timeout: 1000
+        }).show()
+    }
 }
 
 ;[...btns].forEach(btn => {

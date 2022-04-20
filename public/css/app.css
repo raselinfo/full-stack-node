@@ -492,3 +492,7 @@ body {
 .login .dontAccount {
   color: #fe5f1e;
 }
+
+.noty_theme__mint {
+  border-radius: 20px !important;
+}
