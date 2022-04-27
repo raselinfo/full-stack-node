@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "bcrypt": "^5.0.1",
     "connect-mongodb-session": "^3.1.1",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
@@ -19,7 +20,9 @@
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
     "mongoose": "^6.2.9",
-    "noty": "^3.2.0-beta-deprecated"
+    "noty": "^3.2.0-beta-deprecated",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "laravel-mix": "^6.0.43",

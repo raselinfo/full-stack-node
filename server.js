@@ -3,9 +3,11 @@ const express = require("express")
 const ejs = require("ejs")
 const expressLayout = require("express-ejs-layouts")
 const path = require("path")
+const passport = require("passport")
 const flash = require("express-flash")
 const mongoose = require("mongoose")
 const session = require("express-session")
+const passportInit = require("./app/config/passport")
 const MongoStor = require("connect-mongodb-session")(session)
 const getWebRoutes = require("./routes/web")
 const app = express()
@@ -13,6 +15,7 @@ let PORT = process.env.PORT || 4000
 let MONGO_URI = process.env.MONGO_URI
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 // DataBase connection
 const connectDB = async () => {
     try {
@@ -44,14 +47,16 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 },
     store
 }))
-
 app.use(flash())
 
 app.use(expressLayout)
 app.set("views", path.join(__dirname, "/resources/views"))
 app.set("view engine", "ejs")
 app.use(express.static("public"))
-
+// Passport
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session())
 app.use((req, res, next) => {
     res.locals.session = req.session
     next()

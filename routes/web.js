@@ -1,8 +1,10 @@
 const homeController = require("../app/controllers/home/homeController")
 const cartController = require("../app/controllers/customers/cart")
 const loginController = require("../app/controllers/auth/login")
+const loginPostController = require("../app/controllers/auth/loginPostController")
 const registerController = require("../app/controllers/auth/register")
 const cartPostController = require("../app/controllers/customers/cartPostController")
+const registerPostController = require("../app/controllers/auth/registerPostController")
 
 let routes = [
     {
@@ -22,9 +24,17 @@ let routes = [
         handler: loginController,
         method: "get"
     }, {
+        path: "/login",
+        handler: loginPostController,
+        method: "post"
+    }, {
         path: "/register",
         handler: registerController,
         method: "get"
+    },{
+        path: "/register",
+        handler: registerPostController,
+        method: "post"
     },
 ]
 
