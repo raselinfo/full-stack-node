@@ -27,7 +27,13 @@
                     <a href="/offer">Offer</a>
                     <a href="/order">My order</a>
                     <% if(user){%>
-                        <a href="/register">Logout</a>
+                        <form action="/logout" method="post">
+                            <a>
+    <input type="submit" value="logout">
+                            </a>
+                       
+                        </form>
+                        <!-- <a href="/logout">Logout</a> -->
                         <% }else{%>
                             <a href="/register">Register</a>
                             <a href="/login">Login</a>

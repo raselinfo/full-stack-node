@@ -5,6 +5,8 @@ const loginPostController = require("../app/controllers/auth/loginPostController
 const registerController = require("../app/controllers/auth/register")
 const cartPostController = require("../app/controllers/customers/cartPostController")
 const registerPostController = require("../app/controllers/auth/registerPostController")
+const logoutPostController = require("../app/controllers/auth/logoutPostController")
+const guest = require("../app/middleware/guest")
 
 let routes = [
     {
@@ -22,7 +24,8 @@ let routes = [
     }, {
         path: "/login",
         handler: loginController,
-        method: "get"
+        method: "get",
+        mid: guest
     }, {
         path: "/login",
         handler: loginPostController,
@@ -30,24 +33,36 @@ let routes = [
     }, {
         path: "/register",
         handler: registerController,
-        method: "get"
-    },{
+        method: "get",
+        mid: guest
+    }, {
         path: "/register",
         handler: registerPostController,
         method: "post"
-    },
+    }, {
+        path: "/logout",
+        handler: logoutPostController,
+        method: "post"
+    }
 ]
 
 
 
 const getWebRoutes = (app) => {
-    routes.forEach(({ method, path, handler }) => {
+    routes.forEach(({ method, path, handler, mid }) => {
         if (method === "post") {
-
-            app.post(path, handler)
+            if (mid) {
+                app.post(path, mid, handler)
+            } else {
+                app.post(path, handler)
+            }
         }
         if (method === "get") {
-            app.get(path, handler)
+            if (mid) {
+                app.get(path, mid, handler)
+            } else {
+                app.get(path, handler)
+            }
 
         }
     })
