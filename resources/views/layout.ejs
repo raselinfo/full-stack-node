@@ -23,27 +23,28 @@
                 </div>
                 <!-- Menu -->
                 <div class="menu">
-                    <a href="/menu">Menu</a>
+                    <a href="/">Menu</a>
                     <a href="/offer">Offer</a>
                     <a href="/order">My order</a>
                     <% if(user){%>
                         <form action="/logout" method="post">
                             <a>
-    <input type="submit" value="logout">
+                                <input type="submit" value="logout">
                             </a>
-                       
+
                         </form>
-                        <!-- <a href="/logout">Logout</a> -->
                         <% }else{%>
                             <a href="/register">Register</a>
                             <a href="/login">Login</a>
                             <% } %>
 
                                 <span>
-                                    <a href="/cart"><img src="/img/cart.png" alt="cart"></a>
-                                    <span id="cartQty">
-                                        <%=session.cart ? session.cart.totalQty : "0" %>
-                                    </span>
+                                    <a href="/cart"><img src="/img/cart.png" alt="cart">
+                                        <span id="cartQty">
+                                            <%=session.cart ? session.cart.totalQty : "0" %>
+                                        </span>
+                                    </a>
+
                                 </span>
                 </div>
             </nav>

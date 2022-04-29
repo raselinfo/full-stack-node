@@ -57,15 +57,20 @@
                     </h3>
                     <div class="phoneAddress text-right flex flex-col">
                         <div class="">
-                            <input class="p-3 block w-1/2 ml-auto mb-5 border-b-2 focus:outline-0" type="text"
-                                placeholder="Phone Number">
-                            <input class="p-3 block w-1/2 ml-auto mb-5 border-b-2 focus:outline-0" type="text"
-                                placeholder="Address">
-                            <div>
-                                <button class="btn">Order Now</button>
+                            <form action="/order" method="POST">
+                                <input name="phone" class="p-3 block w-1/2 ml-auto mb-5 border-b-2 focus:outline-0" type="text"
+                                    placeholder="Phone Number">
+                                <input name="address" class="p-3 block w-1/2 ml-auto mb-5 border-b-2 focus:outline-0" type="text"
+                                    placeholder="Address">
+                                <div>
+                                    <% if(user){%>
+                                        <button class="btn">Order Now</button>
+                                        <%}else{%>
+                                            <a href="/login" class="btn">Login</a>
+                                            <% } %>
 
-                                <a href="/login" class="btn">Login</a>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

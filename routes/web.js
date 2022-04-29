@@ -7,6 +7,8 @@ const cartPostController = require("../app/controllers/customers/cartPostControl
 const registerPostController = require("../app/controllers/auth/registerPostController")
 const logoutPostController = require("../app/controllers/auth/logoutPostController")
 const guest = require("../app/middleware/guest")
+const orderPostController = require("../app/controllers/customers/orderPostController")
+const orderController = require("../app/controllers/customers/orderController")
 
 let routes = [
     {
@@ -43,6 +45,14 @@ let routes = [
         path: "/logout",
         handler: logoutPostController,
         method: "post"
+    }, {
+        path: "/order",
+        handler: orderPostController,
+        method: "post"
+    }, {
+        path: "/order",
+        handler: orderController,
+        method: "get"
     }
 ]
 
